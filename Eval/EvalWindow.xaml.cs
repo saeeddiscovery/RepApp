@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Eval
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EvalWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EvalWindow : Window
     {
-        public MainWindow()
+        public EvalWindow()
         {
             InitializeComponent();
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            EvalWindow evalWin = new EvalWindow();
-            evalWin.Show();
         }
     }
 }

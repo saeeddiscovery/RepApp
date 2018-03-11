@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eval"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="192.073" Width="328.659" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Button x:Name="btn_Start" Content="شروع پرسشنامه جدید" Margin="0,20,0,0" Width="238.171" Height="56.342" VerticalAlignment="Top" IsDefault="True" ToolTip="شروع پرسشنامه جدید" Click="button_Click"/>
+        <Button x:Name="btn_Continue" Content="ادامه پرسشنامه قبلی" Margin="41.244,0,41.244,23.389" Width="238.171" Height="56.342" VerticalAlignment="Bottom" IsDefault="True" ToolTip="ادامه پرسشنامه قبلی" Click="button_Click"/>
+
     </Grid>
 </Window>
