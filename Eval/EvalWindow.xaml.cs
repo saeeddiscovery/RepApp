@@ -23,5 +23,10 @@ namespace Eval
         {
             InitializeComponent();
         }
+
+        private void EvalWin_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

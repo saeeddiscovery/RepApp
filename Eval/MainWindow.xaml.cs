@@ -29,6 +29,7 @@ namespace Eval
         {
             EvalWindow evalWin = new EvalWindow();
             evalWin.Show();
+            this.Hide();
         }
     }
 }

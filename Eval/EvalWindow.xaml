@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eval"
         mc:Ignorable="d"
-        Title="Evaluation" Height="742.939" Width="841.694" WindowStartupLocation="CenterScreen">
+        Title="Evaluation" Height="742.939" Width="841.694" WindowStartupLocation="CenterScreen" Closed="EvalWin_Closed">
     <Window.Resources>
         <Style x:Key="RadioButton" TargetType="RadioButton">
             <Setter Property="SnapsToDevicePixels" Value="true"/>
@@ -79,7 +79,7 @@
                 </Viewbox>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox2" Header="میزان معرف بودن" Height="65.245" Margin="353.69,0,178.294,74.576" VerticalAlignment="Bottom">
+        <GroupBox x:Name="groupBox2" Header="میزان معرف بودن" Height="65.245" Margin="353.69,0,178.294,74.576" VerticalAlignment="Bottom" ToolTip="یعنی هر تصویر تا چه حد به خوبی نشان دهنده ي آن خوراکی است و نماینده ي خوبی براي نشان دادن آن تصویر به شمار می رود">
             <Grid Margin="4,1.528,4,-12.96">
                 <Viewbox x:Name="vb_11" Margin="1,5.5,0,14.5" HorizontalAlignment="Left" Width="28.69">
                     <RadioButton x:Name="rb_11" Content="1" Cursor="Hand" GroupName="Question2" HorizontalAlignment="Left" Margin="0" Style="{DynamicResource RadioButton}"/>
