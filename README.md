@@ -6,7 +6,7 @@ Representativeness and Appetzingness survey for food images
 **View images and answer two questions**
 1. How much Appetizing is each image for you?
 2. How much each image Represents the corresponding food group?
-> (from the lowest :one: to the highest :keycap_ten:)
+> (from the lowest :one: to the highest :ten:)
 
 ### Releases (Binary files)
 Windows releases (.exe) can be found here: [Windows Releases](https://github.com/saeedmhq/RepApp/Releases)

@@ -35,10 +35,10 @@ namespace Eval
         private void image_Loaded(object sender, RoutedEventArgs e)
         {
             string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-            string folderName = appPath + "\\Images";
+            string folderName = appPath + "\\تصاویر";
             if (Directory.Exists(folderName)==false)
                 {
-                MessageBox.Show("لطفا عکس ها را در پوشه images قرار دهید", "پوشه images پیدا نشد", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("لطفا عکس ها را در پوشه ''تصاویر'' قرار دهید", "پوشه ''تصاویر'' پیدا نشد", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                 this.Close();
             }
             imgList = Directory.GetFiles(folderName, "*.*", SearchOption.AllDirectories).ToList();
@@ -54,7 +54,7 @@ namespace Eval
             }
             else
             {
-                MessageBox.Show("پایان ارزیابی");
+                MessageBox.Show("پرسشنامه به اتمام رسید\nسپاسگذاریم ", "پایان ارزیابی", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                 this.Close();
             }
             
