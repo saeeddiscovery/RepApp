@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Eval
+namespace RepApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -27,8 +27,8 @@ namespace Eval
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            EvalWindow evalWin = new EvalWindow();
-            evalWin.Show();
+            InfoWindow infoWin = new InfoWindow();
+            infoWin.Show();
             //this.WindowState = WindowState.Minimized;
         }
     }

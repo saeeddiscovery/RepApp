@@ -1,9 +1,9 @@
-﻿<Window x:Name="EvalWin" x:Class="Eval.EvalWindow"
+﻿<Window x:Name="Win_Eval" x:Class="RepApp.EvalWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Eval"
+        xmlns:local="clr-namespace:RepApp"
         mc:Ignorable="d"
         Title="Evaluation" Height="651.939" Width="566.694" WindowStartupLocation="CenterScreen" Closed="EvalWin_Closed">
     <Window.Resources>
@@ -117,7 +117,7 @@
             </Grid>
         </GroupBox>
         <Label x:Name="label_Copy" Content="نمره ي یک کمترین میزان و نمره ده، بیشترین میزان را نشان می دهد" Height="32.939" Margin="10,0,205.294,0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
-        <Button x:Name="button" Content="بعدی &gt;" Height="84.062" Margin="0,0,36.004,86.791" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="152.69" FontWeight="Bold" Click="button_Click"/>
+        <Button x:Name="button" Content="بعدی &gt;" Height="84.062" Margin="0,0,36.004,86.791" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="152.69" Click="button_Click"/>
         <Button x:Name="button1" Content="&lt; قبلی" Height="40.851" Margin="0,0,36.004,42.277" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="152.69"/>
     </Grid>
 </Window>

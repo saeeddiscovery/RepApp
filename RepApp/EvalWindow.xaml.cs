@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 
-namespace Eval
+namespace RepApp
 {
     /// <summary>
     /// Interaction logic for EvalWindow.xaml
