@@ -1,15 +1,20 @@
 # RepApp
 Representativeness and Appetzingness survey for food images
 
+پرسشنامه میزان اشتها برانگیز بودن و معرف بودن تصاویر خوراکی ها
 
-### How to use
-**View images and answer two questions**
-1. How much Appetizing is each image for you?
-2. How much each image Represents the corresponding food group?
-> (from the lowest :one: to the highest :ten:)
 
-### Releases (Binary files)
-Windows releases (.exe) can be found here: [Windows Releases](https://github.com/saeedmhq/RepApp/Releases)
+### روش استفاده
+> تصاویر را در پوشه "تصاویر" قرار دهید
+- با شروع پرسشنامه جدید باید ابتدا فرم مشخصات پر شود
+- سپس وارد مرحله پرسشنامه می شوید و باید برای هر عکس به دو سوال پاسخ دهید
+1. میزان اشتها برانگیز بودن
+2. میزان معرف بودن
+  - (یعنی هر تصویر تا چه حد به خوبی نشان دهنده ي آن خوراکی است و نماینده ي خوبی براي نشان دادن آن تصویر به شمار مي رود)
+>> (نمره ي يک کمترين ميزان و نمره ده، بيشترين ميزان را نشان مي دهد)
+
+### (.exe) فایل اجرایی 
+[Windows Releases](https://github.com/saeedmhq/RepApp/Releases) :فایل اجرایی برای ویندوز را می توانید از اینجا پیدا کنید
 
 
 - Persian language / For research use only
