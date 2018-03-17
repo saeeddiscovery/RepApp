@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Eval"
         mc:Ignorable="d"
-        Title="Evaluation" Height="742.939" Width="841.694" WindowStartupLocation="CenterScreen" Closed="EvalWin_Closed">
+        Title="Evaluation" Height="651.939" Width="566.694" WindowStartupLocation="CenterScreen" Closed="EvalWin_Closed">
     <Window.Resources>
         <Style x:Key="RadioButton" TargetType="RadioButton">
             <Setter Property="SnapsToDevicePixels" Value="true"/>
@@ -45,7 +45,10 @@
         </Style>
     </Window.Resources>
     <Grid x:Name="MainGrid" Margin="0">
-        <GroupBox x:Name="groupBox1" Header="میزان اشتها برانگیز بودن" Height="65.245" Margin="27.69,0,0,74.576" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="301.71">
+        <Viewbox Margin="10,5.218,10,179.429">
+            <Image x:Name="image" Height="550" Width="700" Loaded="image_Loaded" d:LayoutOverrides="Height"/>
+        </Viewbox>
+        <GroupBox x:Name="groupBox1" Header="میزان اشتها برانگیز بودن" Height="65.245" Margin="27.69,0,220.294,115.184" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalContentAlignment="Center">
             <Grid Margin="4,1.528,4,-12.96">
                 <Viewbox x:Name="vb_1" Margin="1,5.5,0,14.5" HorizontalAlignment="Left" Width="28.69">
                     <RadioButton x:Name="rb_1" Content="1" Cursor="Hand" GroupName="Question1" HorizontalAlignment="Left" Margin="0" Style="{DynamicResource RadioButton}"/>
@@ -79,7 +82,7 @@
                 </Viewbox>
             </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox2" Header="میزان معرف بودن" Height="65.245" Margin="353.69,0,178.294,74.576" VerticalAlignment="Bottom" ToolTip="یعنی هر تصویر تا چه حد به خوبی نشان دهنده ي آن خوراکی است و نماینده ي خوبی براي نشان دادن آن تصویر به شمار می رود">
+        <GroupBox x:Name="groupBox2" Header="میزان معرف بودن" Height="65.245" Margin="27.69,0,220.294,40.941" VerticalAlignment="Bottom" ToolTip="یعنی هر تصویر تا چه حد به خوبی نشان دهنده ي آن خوراکی است و نماینده ي خوبی براي نشان دادن آن تصویر به شمار می رود" FontWeight="Bold">
             <Grid Margin="4,1.528,4,-12.96">
                 <Viewbox x:Name="vb_11" Margin="1,5.5,0,14.5" HorizontalAlignment="Left" Width="28.69">
                     <RadioButton x:Name="rb_11" Content="1" Cursor="Hand" GroupName="Question2" HorizontalAlignment="Left" Margin="0" Style="{DynamicResource RadioButton}"/>
@@ -108,15 +111,13 @@
                 <Viewbox x:Name="vb_19" Margin="230.52,5.5,0,14.5" HorizontalAlignment="Left" Width="28.69">
                     <RadioButton x:Name="rb_19" Content="9" Cursor="Hand" GroupName="Question2" HorizontalAlignment="Left" Margin="0" Style="{DynamicResource RadioButton}"/>
                 </Viewbox>
-                <Viewbox x:Name="vb_20" Margin="255.21,5.5,6,14.5">
+                <Viewbox x:Name="vb_20" Margin="0,5.5,10,14.5" HorizontalAlignment="Right" Width="28">
                     <RadioButton x:Name="rb_20" Content="10" Cursor="Hand" GroupName="Question2" HorizontalAlignment="Left" Margin="0" Style="{DynamicResource RadioButton}"/>
                 </Viewbox>
             </Grid>
         </GroupBox>
-        <Label x:Name="label" Content="با دقت به تصاویري که به شما نشان داده می شود نگاه کنید و به هر تصویر از یک تا ده نمره بدهید" Height="32.939" Margin="32,0,198.294,40.701" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
-        <Label x:Name="label_Copy" Content="نمره ي یک کمترین میزان و نمره ده، بیشترین میزان را نشان می دهد" Height="32.939" Margin="32,0,198.294,15.321" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
-        <Button x:Name="button" Content="بعدی &gt;" HorizontalAlignment="Right" Height="80.061" Margin="0,0,36.004,50.26" VerticalAlignment="Bottom" Width="119.69"/>
-        <Button x:Name="button1" Content="&lt; قبلی" HorizontalAlignment="Right" Height="32.514" Margin="0,0,36.004,10" VerticalAlignment="Bottom" Width="119.69"/>
-        <Image x:Name="image" Margin="27.69,14.464,93.792,187.475" Height="550" Width="770"/>
+        <Label x:Name="label_Copy" Content="نمره ي یک کمترین میزان و نمره ده، بیشترین میزان را نشان می دهد" Height="32.939" Margin="10,0,205.294,0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
+        <Button x:Name="button" Content="بعدی &gt;" Height="84.062" Margin="0,0,36.004,86.791" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="152.69" FontWeight="Bold" Click="button_Click"/>
+        <Button x:Name="button1" Content="&lt; قبلی" Height="40.851" Margin="0,0,36.004,42.277" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="152.69"/>
     </Grid>
 </Window>
