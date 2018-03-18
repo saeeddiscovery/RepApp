@@ -16,8 +16,11 @@ Representativeness and Appetzingness survey for food images
 
 ### (.exe) فایل اجرایی 
 [Windows Releases](https://github.com/saeedmhq/RepApp/releases) :فایل اجرایی برای ویندوز را می توانید از اینجا پیدا کنید
+در بالای صفحه نیز می توانید آخرین ورژن برنامه را دانلود کنید .zip با کلیک بر روی دکمه
 
 ### کد برنامه
 [C# Codes](https://github.com/saeedmhq/RepApp) :کدهای برنامه را می توانید از اینجا پیدا کنید
+در بالای صفحه نیز می توانید کدهای برنامه را دانلود کنید tar.gz با کلیک بر روی دکمه
+
 
 - Persian language / For research use only
