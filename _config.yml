@@ -1,6 +1,6 @@
 theme: jekyll-theme-slate
 title: RepApp
-description: Download buttons >>    tar.gz > Source code   |   .zip > Latest Release
+description: Download buttons >> Source code (tar.gz)  | Latest Release (.zip)
 github:
         zip_url: https://github.com/saeedmhq/RepApp/releases/download/0.1/RepApp_0.1.zip
 show_downloads: true
