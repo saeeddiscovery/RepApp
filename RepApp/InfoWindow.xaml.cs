@@ -65,7 +65,7 @@ namespace RepApp
         private void btn_Next_Click(object sender, RoutedEventArgs e)
         {
             
-            var csv = new StringBuilder();
+            //var csv = new StringBuilder();
             currId += 1;
             var name = tb_name.Text;
             var age = tb_age.Text;
@@ -91,10 +91,12 @@ namespace RepApp
             else if (rb_PMS_no.IsChecked == true) PMS = "خیر";
             var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14}",
                 currId.ToString(), name, age, gender, height, weight, education, regime, surgery, hunger, need, fatigue, sleepy, lastMeal, PMS);
-            csv.AppendLine(newLine);
-            File.AppendAllText(filePath, csv.ToString(), Encoding.UTF8);
+            //csv.AppendLine(newLine);
+            //File.AppendAllText(filePath, csv.ToString(), Encoding.UTF8);
 
             EvalWindow evalWin = new EvalWindow();
+            EvalWindow.info = newLine;
+            EvalWindow.info_filePath = filePath;
             evalWin.Show();
             this.Close();
         }

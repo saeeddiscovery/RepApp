@@ -46,7 +46,7 @@
     </Window.Resources>
     <Grid x:Name="MainGrid" Margin="0">
         <Viewbox Margin="10,5.218,10,179.429">
-            <Image x:Name="image" Height="550" Width="700" Loaded="image_Loaded" d:LayoutOverrides="Height"/>
+            <Image x:Name="image" Height="550" Width="700" d:LayoutOverrides="Height"/>
         </Viewbox>
         <GroupBox x:Name="groupBox1" Header="میزان اشتها برانگیز بودن" Height="65.245" Margin="27.69,0,220.294,115.184" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalContentAlignment="Center">
             <Grid Margin="4,1.528,4,-12.96">
