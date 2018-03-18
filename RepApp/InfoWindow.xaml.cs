@@ -20,15 +20,29 @@ namespace RepApp
     /// </summary>
     public partial class InfoWindow : Window
     {
+        private static string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+        private static string folderPath = appPath + "/نتایج";
+        private static string filePath = folderPath + "/info.csv";
+
         public InfoWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void rb_female_Checked(object sender, RoutedEventArgs e)
+        {
+            grid_PMS.Visibility = Visibility.Visible;
+        }
+
+        private void rb_female_Unchecked(object sender, RoutedEventArgs e)
+        { 
+            grid_PMS.Visibility = Visibility.Hidden;
+        }
+
+        private void btn_Next_Click(object sender, RoutedEventArgs e)
         {
             var csv = new StringBuilder();
-            
+
             var name = tb_name.Text;
             var age = tb_age.Text;
             var gender = "";
@@ -48,36 +62,42 @@ namespace RepApp
             var fatigue = tb_fatigue.Text;
             var sleepy = tb_sleepy.Text;
             var lastMeal = tb_lastMeal.Text;
-            var PMS = tb_PMS.Text;
-
-            var title = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",
-                "نام", "سن", "جنسیت", "قد", "وزن", "تحصیلات", "رژیم", "جراحی", "گرسنگی", "ولع", "خستگی", "خواب آلودگی", "از آخرین وعده", "قاعدگی");
+            var PMS = "";
+            if (rb_PMS_yes.IsChecked == true) PMS = "بله";
+            else if (rb_PMS_no.IsChecked == true) PMS = "خیر";
             var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",
                 name, age, gender, height, weight, education, regime, surgery, hunger, need, fatigue, sleepy, lastMeal, PMS);
-            csv.AppendLine(title);
             csv.AppendLine(newLine);
-            string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-            string folderPath = appPath + "/نتایج";
-            string filePath = folderPath + "/info.csv";
-            if (Directory.Exists(folderPath) == false)
-                Directory.CreateDirectory(folderPath);
-            File.WriteAllText(filePath, csv.ToString(), Encoding.UTF8);
+            File.AppendAllText(filePath, csv.ToString(), Encoding.UTF8);
 
             EvalWindow evalWin = new EvalWindow();
             evalWin.Show();
             this.Close();
         }
 
-        private void rb_female_Checked(object sender, RoutedEventArgs e)
+        private void Win_Info_Loaded(object sender, RoutedEventArgs e)
         {
-            lbl_PMS.IsEnabled = true;
-            tb_PMS.IsEnabled = true;
+            if (Directory.Exists(folderPath) == false)
+                Directory.CreateDirectory(folderPath);
+
+            if (File.Exists(filePath) == false)
+            {
+                var csv = new StringBuilder();
+                var title = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",
+                    "نام", "سن", "جنسیت", "قد", "وزن", "تحصیلات", "رژیم", "جراحی", "گرسنگی", "ولع", "خستگی", "خواب آلودگی", "از آخرین وعده", "قاعدگی");
+                csv.AppendLine(title);
+                File.WriteAllText(filePath, csv.ToString(), Encoding.UTF8);
+            }
         }
 
-        private void rb_female_Unchecked(object sender, RoutedEventArgs e)
+        private void rb_male_Checked(object sender, RoutedEventArgs e)
         {
-            lbl_PMS.IsEnabled = false;
-            tb_PMS.IsEnabled = false;
+            grid_PMS.Visibility = Visibility.Hidden;
+        }
+
+        private void btn_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Windows.Interop;
 
 namespace RepApp
 {
@@ -43,21 +44,41 @@ namespace RepApp
             }
             imgList = Directory.GetFiles(folderName, "*.*", SearchOption.AllDirectories).ToList();
             image.Source = new BitmapImage(new Uri(imgList[imgIdx]));
+            tb_Index.Text = "1 / " + imgList.Count.ToString(); 
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btn_Next_Click(object sender, RoutedEventArgs e)
         {
-            imgIdx += 1;
-            if (imgIdx < imgList.Count)
+            if (imgIdx < imgList.Count-1)
             {
+                imgIdx += 1;
+                if (btn_Prev.IsEnabled == false) btn_Prev.IsEnabled = true;
                 image.Source = new BitmapImage(new Uri(imgList[imgIdx]));
+                tb_Index.Text = (imgIdx+1).ToString() + " / " + imgList.Count.ToString();
             }
             else
             {
                 MessageBox.Show("پرسشنامه به اتمام رسید\nسپاسگذاریم ", "پایان ارزیابی", MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
-                this.Close();
+                btn_Next.IsEnabled = false;
+                //this.Close();
             }
-            
+        }
+
+        private void btn_Prev_Click(object sender, RoutedEventArgs e)
+        {
+            imgIdx -= 1;
+            if (imgIdx > 0)
+            {
+                if (btn_Next.IsEnabled == false) btn_Next.IsEnabled = true;
+                image.Source = new BitmapImage(new Uri(imgList[imgIdx]));
+                tb_Index.Text = (imgIdx+1).ToString() + " / " + imgList.Count.ToString();
+            }
+            else
+            {
+                image.Source = new BitmapImage(new Uri(imgList[imgIdx]));
+                tb_Index.Text = (imgIdx+1).ToString() + " / " + imgList.Count.ToString();
+                btn_Prev.IsEnabled = false;
+            }
         }
     }
 }

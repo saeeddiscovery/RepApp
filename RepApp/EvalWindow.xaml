@@ -117,7 +117,8 @@
             </Grid>
         </GroupBox>
         <Label x:Name="label_Copy" Content="نمره ي یک کمترین میزان و نمره ده، بیشترین میزان را نشان می دهد" Height="32.939" Margin="10,0,205.294,0" VerticalAlignment="Bottom" HorizontalContentAlignment="Center"/>
-        <Button x:Name="button" Content="بعدی &gt;" Height="84.062" Margin="0,0,36.004,86.791" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="152.69" Click="button_Click"/>
-        <Button x:Name="button1" Content="&lt; قبلی" Height="40.851" Margin="0,0,36.004,42.277" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="152.69"/>
+        <Button x:Name="btn_Next" Content="بعدی &gt;" Height="84.062" Margin="0,0,36.004,86.791" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="152.69" Click="btn_Next_Click"/>
+        <Button x:Name="btn_Prev" Content="&lt; قبلی" Height="40.851" Margin="0,0,36.004,42.277" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="152.69" Click="btn_Prev_Click"/>
+        <TextBlock x:Name="tb_Index" HorizontalAlignment="Left" Height="22.939" Margin="452.996,588,0,0" TextWrapping="Wrap" Text="- / -" VerticalAlignment="Top" Width="69.694" FontSize="14" FontWeight="Bold" Foreground="#FF033168" TextAlignment="Center"/>
     </Grid>
 </Window>
