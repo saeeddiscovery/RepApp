@@ -15,7 +15,7 @@ Representativeness and Appetzingness survey for food images
 #### توجه: تنها پس از جواب دادن به سوال های تمام عکس ها، نتیجه پرسشنامه ذخیره خواهد شد و در صورت بسته شدن برنامه در میانه کار، باید مراحل را از ابتدا شروع کنید.
 
 ### (.exe) فایل اجرایی 
-[Windows Releases](https://github.com/saeedmhq/RepApp/Releases) :فایل اجرایی برای ویندوز را می توانید از اینجا پیدا کنید
+[Windows Releases](https://github.com/saeedmhq/RepApp/releases) :فایل اجرایی برای ویندوز را می توانید از اینجا پیدا کنید
 
 ### کد برنامه
 [C# Codes](https://github.com/saeedmhq/RepApp) :کدهای برنامه را می توانید از اینجا پیدا کنید
