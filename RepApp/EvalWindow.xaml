@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RepApp"
         mc:Ignorable="d"
-        Title="Evaluation" Height="651.939" Width="566.694" WindowStartupLocation="CenterScreen" Closed="EvalWin_Closed">
+        Title="Evaluation" Height="651.939" Width="566.694" WindowStartupLocation="CenterScreen" Closed="EvalWin_Closed" Loaded="Win_Eval_Loaded">
     <Window.Resources>
         <Style x:Key="RadioButton" TargetType="RadioButton">
             <Setter Property="SnapsToDevicePixels" Value="true"/>

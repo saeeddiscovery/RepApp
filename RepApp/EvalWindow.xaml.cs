@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Windows.Interop;
+using CsvHelper;
 
 namespace RepApp
 {
@@ -21,6 +22,10 @@ namespace RepApp
     /// </summary>
     public partial class EvalWindow : Window
     {
+        private static string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+        private static string folderPath = appPath + "/نتایج";
+        private static string filePath = folderPath + "/survey.csv";
+        private static int currId = 0;
         public int imgIdx = 0;
         public List<string> imgList;
         public EvalWindow()
@@ -35,20 +40,17 @@ namespace RepApp
 
         private void image_Loaded(object sender, RoutedEventArgs e)
         {
-            string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-            string folderName = appPath + "\\تصاویر";
-            if (Directory.Exists(folderName)==false)
-                {
-                MessageBox.Show("لطفا عکس ها را در پوشه ''تصاویر'' قرار دهید", "پوشه ''تصاویر'' پیدا نشد", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
-                this.Close();
-            }
-            imgList = Directory.GetFiles(folderName, "*.*", SearchOption.AllDirectories).ToList();
-            image.Source = new BitmapImage(new Uri(imgList[imgIdx]));
-            tb_Index.Text = "1 / " + imgList.Count.ToString(); 
+
+
+
+
         }
 
         private void btn_Next_Click(object sender, RoutedEventArgs e)
         {
+            var csv = new StringBuilder();
+            currId += 1;
+
             if (imgIdx < imgList.Count-1)
             {
                 imgIdx += 1;
@@ -78,6 +80,47 @@ namespace RepApp
                 image.Source = new BitmapImage(new Uri(imgList[imgIdx]));
                 tb_Index.Text = (imgIdx+1).ToString() + " / " + imgList.Count.ToString();
                 btn_Prev.IsEnabled = false;
+            }
+        }
+
+        private void Win_Eval_Loaded(object sender, RoutedEventArgs e)
+        {
+            string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+            string folderName = appPath + "\\تصاویر";
+            imgList = Directory.GetFiles(folderName, "*.*", SearchOption.AllDirectories).ToList();
+            if (Directory.Exists(folderName) == false)
+            {
+                MessageBox.Show("لطفا عکس ها را در پوشه ''تصاویر'' قرار دهید", "پوشه ''تصاویر'' پیدا نشد", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
+                this.Close();
+            }
+
+            image.Source = new BitmapImage(new Uri(imgList[imgIdx]));
+            tb_Index.Text = "1 / " + imgList.Count.ToString();
+
+            if (Directory.Exists(folderPath) == false)
+                Directory.CreateDirectory(folderPath);
+
+            if (File.Exists(filePath) == false)
+            {
+                var csv = new StringBuilder();
+                string title = "ID";
+                for (int i = 1; i <= imgList.Count; i++)
+                {
+                    if (i < imgList.Count)
+                        title = title + ',';
+                    title = title + i.ToString();
+                }
+                csv.AppendLine(title);
+                File.WriteAllText(filePath, csv.ToString());
+            }
+            else
+            {
+                using (TextReader fileReader = File.OpenText(filePath))
+                {
+                    var csv = new CsvReader(fileReader);
+                    var records = csv.GetRecords<dynamic>();
+                    currId = records.Count<dynamic>();
+                }
             }
         }
     }

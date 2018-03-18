@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace RepApp
         private static string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
         private static string folderPath = appPath + "/نتایج";
         private static string filePath = folderPath + "/info.csv";
+        private static int currId = 0;
 
         public InfoWindow()
         {
@@ -39,10 +41,32 @@ namespace RepApp
             grid_PMS.Visibility = Visibility.Hidden;
         }
 
+        public static List<string> ReadInCSV(string filePath)
+        {
+            List<string> result = new List<string>();
+            string value;
+            using (TextReader fileReader = File.OpenText(filePath))
+            {
+                var csv = new CsvReader(fileReader);
+                csv.Configuration.HasHeaderRecord = true;
+                while (csv.Read())
+                {
+                    
+                    
+                    for (int i = 0; csv.TryGetField<string>(i, out value); i++)
+                    {
+                        result.Add(value);
+                    }
+                }
+            }
+            return result;
+        }
+
         private void btn_Next_Click(object sender, RoutedEventArgs e)
         {
+            
             var csv = new StringBuilder();
-
+            currId += 1;
             var name = tb_name.Text;
             var age = tb_age.Text;
             var gender = "";
@@ -65,8 +89,8 @@ namespace RepApp
             var PMS = "";
             if (rb_PMS_yes.IsChecked == true) PMS = "بله";
             else if (rb_PMS_no.IsChecked == true) PMS = "خیر";
-            var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",
-                name, age, gender, height, weight, education, regime, surgery, hunger, need, fatigue, sleepy, lastMeal, PMS);
+            var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14}",
+                currId.ToString(), name, age, gender, height, weight, education, regime, surgery, hunger, need, fatigue, sleepy, lastMeal, PMS);
             csv.AppendLine(newLine);
             File.AppendAllText(filePath, csv.ToString(), Encoding.UTF8);
 
@@ -83,10 +107,19 @@ namespace RepApp
             if (File.Exists(filePath) == false)
             {
                 var csv = new StringBuilder();
-                var title = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",
-                    "نام", "سن", "جنسیت", "قد", "وزن", "تحصیلات", "رژیم", "جراحی", "گرسنگی", "ولع", "خستگی", "خواب آلودگی", "از آخرین وعده", "قاعدگی");
+                var title = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14}",
+                    "ID", "نام", "سن", "جنسیت", "قد", "وزن", "تحصیلات", "رژیم", "جراحی", "گرسنگی", "ولع", "خستگی", "خواب آلودگی", "از آخرین وعده", "قاعدگی");
                 csv.AppendLine(title);
                 File.WriteAllText(filePath, csv.ToString(), Encoding.UTF8);
+            }
+            else
+            {
+                using (TextReader fileReader = File.OpenText(filePath))
+                {
+                    var csv = new CsvReader(fileReader);
+                    var records = csv.GetRecords<dynamic>();
+                    currId = records.Count<dynamic>();
+                }
             }
         }
 
