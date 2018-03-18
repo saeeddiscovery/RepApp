@@ -2,3 +2,4 @@ theme: jekyll-theme-slate
 github:
         zip_url: https://github.com/saeedmhq/RepApp/releases/download/0.1/RepApp_0.1.zip
 show_downloads: true
+description: Download:>> tar.gz: Source code / .zip: Last Release (.exe)
