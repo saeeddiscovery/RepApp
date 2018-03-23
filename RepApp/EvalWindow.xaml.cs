@@ -169,13 +169,13 @@ namespace RepApp
                 MessageBox.Show("لطفا عکس ها را در پوشه ''تصاویر'' قرار دهید", "پوشه ''تصاویر'' پیدا نشد", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                 Environment.Exit(0);
             }
-            imgList = Directory.GetFiles(folderName, "*.*", SearchOption.AllDirectories).ToList();
+            //imgList = Directory.GetFiles(folderName, "*.*", SearchOption.AllDirectories).ToList();
+            imgList = Directory.GetFiles(folderName, "*.*", SearchOption.AllDirectories).OrderBy(f => int.Parse(System.IO.Path.GetFileNameWithoutExtension(f))).ToList();
             if (imgList.Count == 0)
             {
                 MessageBox.Show("لطفا عکس ها را در پوشه ''تصاویر'' قرار دهید", "تصویری در پوشه ''تصاویر'' پیدا نشد", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK, MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
                 Environment.Exit(0);
             }
-
             q1_answers = new string[imgList.Count];
             q2_answers = new string[imgList.Count];
             image.Source = new BitmapImage(new Uri(imgList[imgIdx]));
