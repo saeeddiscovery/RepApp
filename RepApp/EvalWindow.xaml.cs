@@ -25,7 +25,7 @@ namespace RepApp
         private static string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
         private static string folderPath = appPath + "/نتایج";
         private static string filePath = folderPath + "/survey.csv";
-        private static int currId = 0;
+        public static int currId = 0;
         public static string info;
         public static string info_filePath;
         public int imgIdx = 0;
@@ -194,7 +194,7 @@ namespace RepApp
                 }
                 csv.AppendLine(title);
                 File.WriteAllText(filePath, csv.ToString(), Encoding.UTF8);
-                currId = 1;
+                //currId = 1;
             }
             else
             {
@@ -202,7 +202,7 @@ namespace RepApp
                 {
                     var csv = new CsvReader(fileReader);
                     var records = csv.GetRecords<dynamic>();
-                    currId = records.Count<dynamic>();
+                    //currId = records.Count<dynamic>();
                 }
             }
         }

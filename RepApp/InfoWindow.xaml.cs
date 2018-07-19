@@ -97,6 +97,7 @@ namespace RepApp
             EvalWindow evalWin = new EvalWindow();
             EvalWindow.info = newLine;
             EvalWindow.info_filePath = filePath;
+            EvalWindow.currId = currId;
             evalWin.Show();
             this.Close();
         }
