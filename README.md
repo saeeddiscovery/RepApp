@@ -1,4 +1,6 @@
 # RepApp
+[!["Latest Release"](https://img.shields.io/badge/Release-v0.12-9cf.svg)](https://github.com/saeedmhq/RepApp/releases/latest)
+
 Representativeness and Appetzingness survey for food images
 
 پرسشنامه میزان اشتها برانگیز بودن و معرف بودن تصاویر خوراکی ها
