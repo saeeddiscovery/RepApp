@@ -1,0 +1,4 @@
+Check versions at https://www.nuget.org/packages/CsvHelper
+
+Install via package manager:
+PM> Install-Package CsvHelper -Version 27.0.1

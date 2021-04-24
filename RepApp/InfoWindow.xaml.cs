@@ -31,16 +31,6 @@ namespace RepApp
             InitializeComponent();
         }
 
-        private void rb_female_Checked(object sender, RoutedEventArgs e)
-        {
-            grid_PMS.Visibility = Visibility.Visible;
-        }
-
-        private void rb_female_Unchecked(object sender, RoutedEventArgs e)
-        { 
-            grid_PMS.Visibility = Visibility.Hidden;
-        }
-
         public static List<string> ReadInCSV(string filePath)
         {
             List<string> result = new List<string>();
@@ -75,22 +65,9 @@ namespace RepApp
             var height = tb_height.Text;
             var weight = tb_weight.Text;
             var education = cb_education.Text;
-            var regime = "";
-            if (rb_regime_yes.IsChecked == true) regime = "بله";
-            else if (rb_regime_no.IsChecked == true) regime = "خیر";
-            var surgery = "";
-            if (rb_surgery_yes.IsChecked == true) surgery = "بله";
-            else if (rb_surgery_no.IsChecked == true) surgery = "خیر";
-            var hunger = tb_hunger.Text;
-            var need = tb_need.Text;
-            var fatigue = tb_fatigue.Text;
-            var sleepy = tb_sleepy.Text;
-            var lastMeal = tb_lastMeal.Text;
-            var PMS = "";
-            if (rb_PMS_yes.IsChecked == true) PMS = "بله";
-            else if (rb_PMS_no.IsChecked == true) PMS = "خیر";
-            var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14}",
-                currId.ToString(), name, age, gender, height, weight, education, regime, surgery, hunger, need, fatigue, sleepy, lastMeal, PMS);
+            
+            var newLine = string.Format("{0},{1},{2},{3},{4},{5},{6}",
+                currId.ToString(), name, age, gender, height, weight, education);
             //csv.AppendLine(newLine);
             //File.AppendAllText(filePath, csv.ToString(), Encoding.UTF8);
 
@@ -110,8 +87,8 @@ namespace RepApp
             if (File.Exists(filePath) == false)
             {
                 var csv = new StringBuilder();
-                var title = string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14}",
-                    "ID", "نام", "سن", "جنسیت", "قد", "وزن", "تحصیلات", "رژیم", "جراحی", "گرسنگی", "ولع", "خستگی", "خواب آلودگی", "از آخرین وعده", "قاعدگی");
+                var title = string.Format("{0},{1},{2},{3},{4},{5},{6}",
+                    "ID", "نام", "سن", "جنسیت", "قد", "وزن", "تحصیلات");
                 csv.AppendLine(title);
                 File.WriteAllText(filePath, csv.ToString(), Encoding.UTF8);
             }
@@ -124,11 +101,6 @@ namespace RepApp
                     currId = records.Count<dynamic>();
                 }
             }
-        }
-
-        private void rb_male_Checked(object sender, RoutedEventArgs e)
-        {
-            grid_PMS.Visibility = Visibility.Hidden;
         }
 
         private void btn_Cancel_Click(object sender, RoutedEventArgs e)
