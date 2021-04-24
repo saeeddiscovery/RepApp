@@ -48,7 +48,7 @@
         <Viewbox Margin="10,5.218,10,179.429">
             <Image x:Name="image" Height="550" Width="700" d:LayoutOverrides="Height"/>
         </Viewbox>
-        <GroupBox x:Name="groupBox1" Header="میزان اشتها برانگیز بودن" Height="65.245" Margin="27.69,0,220.294,115.184" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalContentAlignment="Center">
+        <GroupBox x:Name="groupBox1" Header="میزان ولع مصرف" Height="65.245" Margin="27.69,0,220.294,115.184" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalContentAlignment="Center">
             <Grid Margin="4,1.528,4,-12.96">
                 <Viewbox x:Name="vb_1" Margin="1,5.5,0,14.5" HorizontalAlignment="Left" Width="28.69">
                     <RadioButton x:Name="rb_1" Content="1" Cursor="Hand" GroupName="Question1" HorizontalAlignment="Left" Margin="0" Style="{DynamicResource RadioButton}"/>
